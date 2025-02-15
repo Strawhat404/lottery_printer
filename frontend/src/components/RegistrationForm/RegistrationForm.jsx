@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import './RegistrationForm.css';
 
@@ -24,7 +25,7 @@ function RegistrationForm() {
         setError(null);
         
         try {
-            const response = await axios.post('http://localhost:8000/api/register/', formData);
+            const response = await axios.post('http://127.0.0.1:8000/api/register/', formData);
             setResult(response.data);
         } catch (err) {
             setError(
