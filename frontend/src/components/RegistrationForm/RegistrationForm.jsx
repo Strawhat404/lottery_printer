@@ -24,22 +24,14 @@ function RegistrationForm() {
         setError(null);
         
         try {
-            const response = await fetch('http://localhost:8000/api/register/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
-            const data = await response.json();
-            
-            if (!response.ok) {
-                throw new Error(data.error || 'Registration failed');
-            }
-            
-            setResult(data);
+            const response = await axios.post('http://localhost:8000/api/register/', formData);
+            setResult(response.data);
         } catch (err) {
-            setError(err.message || 'An error occurred');
+            setError(
+                err.response?.data?.error || 
+                err.response?.data?.message || 
+                'Registration failed'
+            );
         } finally {
             setLoading(false);
         }
