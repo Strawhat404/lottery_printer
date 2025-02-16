@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import './RegistrationForm.css';
+import logo from '../../assets/logo.jpg';
 
 function RegistrationForm() {
     const [formData, setFormData] = useState({
@@ -40,6 +41,10 @@ function RegistrationForm() {
 
     return (
         <div className="registration-container">
+             <div className="header">
+                <img src={logo} alt="Eth-Delivery Logo" />
+                <h1>Funded by Eth-Delivery</h1>
+            </div>
             <div className="registration-card">
                 <h1 className="title">Lottery Registration</h1>
                 
