@@ -17,20 +17,18 @@ env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z01c&0$39o#@_ghkv-gtyf+%u1bsr_n2bl0p8@)z%52u0%^@f+'
+SECRET_KEY = env('SECRET_KEY', default='x2zkUHrhMPhYr7NqeQPbgQslBsKNgx8odWo5lQuNKFtbQ1J4Onwr8tnNEfvQ9H-tIAc')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['vercel.app','ba.ybssoftware.dev','192.168.1.100']
-
+ALLOWED_HOSTS = ['.vercel.app', 'ba.ybssoftware.dev', 'eth.lottery.ybssoftware.dev']
 
 # Application definition
 
@@ -47,10 +45,8 @@ INSTALLED_APPS = [
     'lottery',
 ]
 
-
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -58,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-   
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -84,7 +79,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -118,10 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -132,7 +122,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
